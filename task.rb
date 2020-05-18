@@ -52,7 +52,7 @@ def q6
   numbers1 = [1, 2, 3, 4, 5]
 
   # 以下に回答を記載
-  numbers2 = numbers1.replace([10,20,30,40,50])
+  numbers2 = numbers1.map{|x| x * 10}
   p numbers2
 end
 
@@ -60,7 +60,7 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-  array.map!{|x| x.to_i}
+  array.map!(&:to_i)
   # 以下は変更しないで下さい
   p array
 end
@@ -80,10 +80,8 @@ def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  number = 1
-  names.each do |name|
-    puts "会員No.#{number} #{name}さん"
-    number += 1
+  names.each_with_index do |name, index|
+    puts "会員No.#{index+1} #{name}さん"
   end
 end
 
@@ -92,11 +90,8 @@ def q10
 
   # 以下に回答を記載
   foods.each do |food|
-    if food.include?("うに")
-      puts "#{food} : 好物です"
-    else
-      puts "#{food} : まぁまぁ好きです"
-    end
+    answer = food.include?("うに") ?  "好物です" : "まぁまぁ好きです"
+    puts "#{food} : #{answer}"
   end
 end
 
