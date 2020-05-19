@@ -99,9 +99,9 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
-  sports_lankings = sports.flatten.group_by(&:itself).map{ |key| key }
-  sports_lankings.each.with_index(1) do |sports_lanking, index| 
-    puts "No#{index} #{sports_lanking[0]}"
+  puts "ユーザーの趣味一覧"
+  sports.flatten.uniq.each.with_index(1) do |hobby, index|   
+    puts "No#{index} #{hobby}"
   end
 end
 
@@ -135,11 +135,11 @@ def q15
   puts <<-EOS
     data1
     # 実行結果
-    #{result1 = data1.key?(:age) ? "OK" : "NG"}
+    #{data1.key?(:age) ? "OK" : "NG"}
 
     data2
     # 実行結果
-    #{result2 = data2.key?(:age) ? "OK" : "NG"}
+    #{data2.key?(:age) ? "OK" : "NG"}
     EOS
 end
 
